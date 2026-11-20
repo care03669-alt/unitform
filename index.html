@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d17"><meta name="description" content="Unitform — a premium all-in-one browser tools workspace.">
+<title>unitform — All-in-One Tools</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" aria-label="unitform home"><span class="brand-mark">u</span><span>unitform</span><small>TOOLS WORKSPACE</small></a>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav-item active" data-view="home"><span>⌂</span> Overview</button>
+    <button class="nav-item" data-view="all"><span>▦</span> All tools <b id="toolCount">0</b></button>
+    <button class="nav-item" data-view="favorites"><span>☆</span> Favorites</button>
+    <button class="nav-item" data-view="history"><span>◷</span> Recent history</button>
+    <div class="side-label category-label">CATEGORIES</div>
+    <div id="categoryNav"></div>
+    <div class="sidebar-bottom"><div class="status-dot"></div><span>Local-first workspace</span><span class="version">v1.0</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> <strong id="crumb">Overview</strong></div>
+      <div class="top-actions"><span class="local-badge"><i></i> Runs in your browser</span><button class="icon-btn" id="themeBtn" title="Toggle accent">◐</button><div class="avatar">U</div></div>
+    </header>
+    <section class="content">
+      <section id="homeView" class="view">
+        <div class="hero">
+          <div class="hero-copy"><div class="eyebrow"><span></span> YOUR DIGITAL TOOLBOX</div><h1>One workspace.<br><em>Everyday tasks,</em> simplified.</h1><p>Fast, focused utilities for files, media, code, text and more. No account required.</p>
+            <div class="hero-search"><span>⌕</span><input id="heroSearch" placeholder="Search 30+ tools..." autocomplete="off"><kbd>↵</kbd></div>
+          </div>
+          <div class="hero-art"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="art-card"><div class="art-top"><span></span><span></span><span></span></div><div class="art-grid"><i>✦</i><i>⌘</i><i>▧</i><i>⌁</i><i>◈</i><i>↗</i><i>⌗</i><i>◷</i><i>⟡</i></div><div class="art-line"></div><div class="art-line short"></div></div></div>
+        </div>
+        <div class="stats-row"><div class="stat"><strong id="statTools">0</strong><span>Available tools</span></div><div class="stat"><strong>8</strong><span>Categories</span></div><div class="stat"><strong>100%</strong><span>Browser-based core</span></div><div class="stat"><strong id="statFav">0</strong><span>Your favorites</span></div></div>
+        <div class="section-head"><div><div class="eyebrow">QUICK ACCESS</div><h2>Popular tools</h2></div><button class="text-btn" data-goto="all">Browse all tools ↗</button></div>
+        <div class="tool-grid" id="popularGrid"></div>
+        <div class="section-head category-heading"><div><div class="eyebrow">EXPLORE BY TYPE</div><h2>Tool categories</h2></div></div>
+        <div class="category-grid" id="categoryCards"></div>
+      </section>
+      <section id="catalogView" class="view hidden">
+        <div class="page-heading"><div><div class="eyebrow">THE TOOLBOX</div><h1 id="catalogTitle">All tools</h1><p id="catalogSub">Find the right utility for the job.</p></div></div>
+        <div class="catalog-controls"><div class="search-field"><span>⌕</span><input id="catalogSearch" placeholder="Search by tool or description..."></div><select id="categoryFilter"><option value="all">All categories</option></select><select id="sortFilter"><option value="az">Name: A to Z</option><option value="za">Name: Z to A</option></select></div>
+        <div class="results-line"><span id="resultCount">0 tools</span><span>Choose a tool to open its workspace</span></div>
+        <div class="tool-grid" id="catalogGrid"></div>
+        <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>No tools found</h3><p>Try another search term or category.</p></div>
+      </section>
+      <section id="toolView" class="view hidden">
+        <div class="tool-heading"><button class="back-btn" id="backBtn">← All tools</button><div class="tool-heading-main"><div class="tool-icon large" id="activeIcon">✦</div><div><div class="eyebrow" id="activeCategory">UTILITY</div><h1 id="activeTitle">Tool name</h1><p id="activeDesc"></p></div></div><button class="favorite-btn" id="activeFavorite">☆ <span>Save</span></button></div>
+        <div class="workspace-card"><div class="workspace-top"><div><span class="live-dot"></span> TOOL WORKSPACE</div><span id="toolHint">Your files stay on this device unless a tool says otherwise.</span></div><div id="toolPanel" class="tool-panel"></div><div class="tool-output hidden" id="toolOutput"></div></div>
+        <div class="privacy-note"><span>◈</span><div><strong>Privacy by design</strong><p>Most unitform tools process data locally in your browser. Files are not uploaded by this interface.</p></div></div>
+      </section>
+    </section>
+    <footer><span>unitform <b>·</b> Built for focused work</span><span>Local-first utilities <b>·</b> <a href="README.md">Documentation</a></span></footer>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="app.js"></script>
+</body></html>
